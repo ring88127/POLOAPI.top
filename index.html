@@ -242,13 +242,32 @@
             background-color: #c86a4a;
         }
         
-        .button.secondary {
-            background-color: var(--primary-color);
-        }
-        
-        .button.secondary:hover {
-            background-color: #1a2a3a;
-        }
+ .button.secondary {
+    position: relative;
+    overflow: hidden;
+}
+
+.button.secondary::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    padding: 2px;
+    border-radius: 10px;
+    background: linear-gradient(90deg, #6366F1, #8B5CF6, #6366F1);
+    background-size: 300% 100%;
+    animation: border-flow 4s linear infinite;
+    -webkit-mask: 
+        linear-gradient(#fff 0 0) content-box, 
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+            mask-composite: exclude;
+}
+
+@keyframes border-flow {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 200% 50%; }
+}
+
         
         .button i {
             margin-right: 8px;
@@ -731,7 +750,7 @@
                 </div>
                 
                 <div class="buttons">
-                    <a href="https://poloapi.top/detail" class="button"><i class="fas fa-rocket"></i>自助体验</a>
+                    <a href="https://poloapi.top/detail" class="button secondary"><i class="fas fa-rocket"></i>自助体验</a>
                     <a href="https://polodaili.apifox.cn/" class="button secondary"><i class="fas fa-book"></i>开发文档</a>
                     <a href="https://poloapi.top/about" class="button secondary"><i class="fas fa-book"></i>联系微信：api2047</a>
                 </div>
