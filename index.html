@@ -242,31 +242,74 @@
             background-color: #c86a4a;
         }
         
- .button.secondary {
+.button.secondary {
     position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 12px 22px;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff;
+    background: linear-gradient(90deg, #6366F1, #8B5CF6);
+    border: none;
+
+    cursor: pointer;
     overflow: hidden;
+
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+
+    /* 动态渐变背景 */
+    background-size: 200% 100%;
+    animation: btn-gradient-move 5s linear infinite;
 }
 
-.button.secondary::before {
+/* 悬停：轻微浮起 */
+.button.secondary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(99,102,241,0.35);
+}
+
+/* 光线扫过动画 */
+.button.secondary::after {
     content: "";
     position: absolute;
-    inset: 0;
-    padding: 2px;
-    border-radius: 10px;
-    background: linear-gradient(90deg, #6366F1, #8B5CF6, #6366F1);
-    background-size: 300% 100%;
-    animation: border-flow 4s linear infinite;
-    -webkit-mask: 
-        linear-gradient(#fff 0 0) content-box, 
-        linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-            mask-composite: exclude;
+    top: 0;
+    left: -80%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent 0%,
+        rgba(255,255,255,0.4) 50%,
+        transparent 100%
+    );
+    transform: skewX(-20deg);
+    transition: opacity 0.3s;
+    opacity: 0;
 }
 
-@keyframes border-flow {
-    0% { background-position: 0% 50%; }
-    100% { background-position: 200% 50%; }
+.button.secondary:hover::after {
+    animation: btn-shine 0.9s ease;
+    opacity: 1;
 }
+
+/* 渐变左右流动 */
+@keyframes btn-gradient-move {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* 亮光滑过动画 */
+@keyframes btn-shine {
+    0% { left: -80%; }
+    100% { left: 120%; }
+}
+
+
 
         
         .button i {
