@@ -58,13 +58,36 @@
             margin-bottom: 40px;
             box-shadow: var(--box-shadow);
         }
-  
+
+.float-title {
+  display: inline-block;
+  font-weight: 800;
+  animation: floatText 4s ease-in-out infinite, glowPulse 6s ease-in-out infinite;
+}
+
+/* 浮动 */
+@keyframes floatText {
+  0% { transform: translateY(0px) translateX(0px) scale(1); }
+  25% { transform: translateY(-6px) translateX(2px) scale(1.01); }
+  50% { transform: translateY(0px) translateX(0px) scale(1); }
+  75% { transform: translateY(6px) translateX(-2px) scale(0.99); }
+  100% { transform: translateY(0px) translateX(0px) scale(1); }
+}
+
+/* 微光脉冲效果 */
+@keyframes glowPulse {
+  0% { text-shadow: 0 0 0px rgba(255,255,255,0.0); }
+  50% { text-shadow: 0 0 15px rgba(255,255,255,0.22); }
+ 100% { text-shadow: 0 0 0px rgba(255,255,255,0.0); }
+}
+
+        
 /* 让 PoloAPI 有高级渐变+流动效果 */
 .logo {
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;
-
+ margin-top: 40px;
   font-size: 3.2rem;
   font-weight: 800;
   letter-spacing: -0.8px;
@@ -769,16 +792,17 @@
     <div class="wrapper">
         <div class="container">
             <header class="header">
-                <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="AI技术背景" class="hero-image">
+               <h1 class="float-title">统一的<br>大模型接口网关</h1>
+
                             <div class="logo">
   PoloAPI - <span>企业级AI聚合平台</span>
   <span class="logo-badge">源头供应商</span>
+                              
 </div>
 
 
             
                 <h1 class="headline">全球AI大模型<span>源头直供</span></h1>
-              
           
                 <p class="description">作为上游API供应商，我们提供<strong class="emphasized">企业级高并发支持</strong>、<strong class="emphasized">官方5折起的源头价格</strong>以及<strong class="emphasized">7×24小时技术支持</strong>，助力企业快速接入全球领先AI能力</p>
                 
@@ -790,9 +814,10 @@
                     <div class="model-badge"><i class="fas fa-brain"></i> Deepseek</div>
                     <div class="model-badge"><i class="fas fa-brain"></i> Qwen</div>
                      <div class="model-badge"><i class="fas fa-brain"></i> Doubao</div>
-                      <img src="https://raw.githubusercontent.com/ring88127/POLOAPI.top/refs/heads/main/wechat_2025-12-21_175848_006.png" alt="大模型图" class="feature-image">
+                      
                 </div>
-                
+                                <img src="https://raw.githubusercontent.com/ring88127/POLOAPI.top/refs/heads/main/wechat_2025-12-21_175848_006.png" alt="大模型图" class="feature-image">
+
                 <div class="buttons">
                     <a href="https://poloapi.top/detail" class="button secondary"><i class="fas fa-rocket"></i>自助体验</a>
                     <a href="https://polodaili.apifox.cn/" class="button secondary"><i class="fas fa-book"></i>开发文档</a>
