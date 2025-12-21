@@ -59,30 +59,100 @@
             box-shadow: var(--box-shadow);
         }
   
+/* 让 PoloAPI 有高级渐变+流动效果 */
 .logo {
-    font-size: 3.2rem;
-    font-weight: 800;
-    background: linear-gradient(90deg, #6366F1, #8B5CF6);
-    -webkit-background-clip: text;
-    color: transparent;
-    letter-spacing: -0.8px;
-    margin-bottom: 15px;
-    line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+
+  font-size: 3.2rem;
+  font-weight: 800;
+  letter-spacing: -0.8px;
+  margin-bottom: 15px;
+  line-height: 1;
+
+  /* 渐变文字 + 流动动画 */
+  background: linear-gradient(
+    120deg,
+    var(--primary-color),
+    #8b5cf6,
+    var(--primary-color)
+  );
+  background-size: 220% 100%;
+  -webkit-background-clip: text;
+  color: transparent;
+
+  animation: logo-gradient-move 8s ease-in-out infinite;
 }
 
+/* 鼠标移上去，轻微放大一点，更有“活着”的感觉 */
+.logo:hover {
+  transform: translateY(-1px) scale(1.01);
+  transition: transform 0.3s ease;
+}
 
+/* 徽章：轻微流动 + 发光 */
 .logo-badge {
-    display: inline-block;
-    padding: 4px 14px;
-    font-size: 0.8rem;
-    font-weight: 600;
-    color: white;
-    background: linear-gradient(90deg, #6366F1, #8B5CF6);
-    border-radius: 20px;
-    vertical-align: super;
-    margin-left: 10px;
-    box-shadow: 0 2px 6px rgba(99,102,241,0.3);
+  display: inline-block;
+  padding: 4px 14px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border-radius: 999px;
+  vertical-align: super;
+  margin-left: 10px;
+
+  background: linear-gradient(
+    120deg,
+    var(--secondary-color),
+    #6366f1,
+    var(--secondary-color)
+  );
+  background-size: 220% 100%;
+  color: #fff;
+  box-shadow: 0 0 0 1px rgba(99, 102, 241, 0.25),
+              0 6px 16px rgba(15, 23, 42, 0.25);
+
+  animation: badge-gradient-move 5s linear infinite;
 }
+
+/* 鼠标移到徽章上，有一点点呼吸缩放 */
+.logo-badge:hover {
+  transform: translateY(-1px) scale(1.03);
+  transition: transform 0.25s ease;
+}
+
+/* Logo 渐变缓慢左右流动 */
+@keyframes logo-gradient-move {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* 徽章渐变更快一点，像微弱的能量流动 */
+@keyframes badge-gradient-move {
+  0% {
+    background-position: 0% 50%;
+    box-shadow: 0 0 0 1px rgba(99, 102, 241, 0.25),
+                0 4px 12px rgba(15, 23, 42, 0.20);
+  }
+  50% {
+    background-position: 100% 50%;
+    box-shadow: 0 0 0 1px rgba(129, 140, 248, 0.45),
+                0 8px 20px rgba(79, 70, 229, 0.35);
+  }
+  100% {
+    background-position: 0% 50%;
+    box-shadow: 0 0 0 1px rgba(99, 102, 241, 0.25),
+                0 4px 12px rgba(15, 23, 42, 0.20);
+  }
+}
+
 
         
        
@@ -638,7 +708,11 @@
         <div class="container">
             <header class="header">
                 <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="AI技术背景" class="hero-image">
-                             <div class="logo">PoloAPI - <span>企业级AI聚合平台</span>  <span class="logo-badge">源头供应商</span></div>
+                            <div class="logo">
+  PoloAPI - <span>企业级AI聚合平台</span>
+  <span class="logo-badge">源头供应商</span>
+</div>
+
 
             
                 <h1 class="headline">全球AI大模型<span>源头直供</span></h1>
