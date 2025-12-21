@@ -59,27 +59,8 @@
             box-shadow: var(--box-shadow);
         }
 
-.float-title {
-  display: inline-block;
-  font-weight: 800;
-  animation: floatText 4s ease-in-out infinite, glowPulse 6s ease-in-out infinite;
-}
 
-/* 浮动 */
-@keyframes floatText {
-  0% { transform: translateY(0px) translateX(0px) scale(1); }
-  25% { transform: translateY(-6px) translateX(2px) scale(1.01); }
-  50% { transform: translateY(0px) translateX(0px) scale(1); }
-  75% { transform: translateY(6px) translateX(-2px) scale(0.99); }
-  100% { transform: translateY(0px) translateX(0px) scale(1); }
-}
 
-/* 微光脉冲效果 */
-@keyframes glowPulse {
-  0% { text-shadow: 0 0 0px rgba(255,255,255,0.0); }
-  50% { text-shadow: 0 0 15px rgba(255,255,255,0.22); }
- 100% { text-shadow: 0 0 0px rgba(255,255,255,0.0); }
-}
 
         
 /* 让 PoloAPI 有高级渐变+流动效果 */
@@ -792,7 +773,7 @@
     <div class="wrapper">
         <div class="container">
             <header class="header">
-               <h1 class="float-title">统一的<br>大模型接口网关</h1>
+          
 
                             <div class="logo">
   PoloAPI - <span>企业级AI聚合平台</span>
